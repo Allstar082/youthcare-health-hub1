@@ -198,3 +198,94 @@ nav {
     color: white;
     border-color: var(--secondary);
 }
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    nav {
+        display: block !important; /* Force the nav container to show */
+        width: 100%;
+        position: relative;
+        z-index: 9999; /* Put it on top of everything else */
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: column;
+        background-color: #ffffff !important; /* Force white background */
+        padding: 20px;
+        margin: 0;
+        border-bottom: 3px solid var(--primary); /* A thick line to see where it ends */
+    }
+
+    .nav-links li {
+        display: block;
+        padding: 12px 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        color: #333 !important; /* Force dark text so it's not white-on-white */
+        font-size: 1.1rem;
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    /* Shrink the container to fit the phone screen */
+    .wheel-container {
+        width: 85vw !important; /* Uses 85% of the phone's width */
+        height: 85vw !important;
+        margin: 0 auto; /* Centers the ring */
+    }
+
+    .split-layout {
+        display: flex;
+        flex-direction: column; /* Stack text above the ring */
+        align-items: center;
+        gap: 20px;
+    }
+
+    .ring-section {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+.hero-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f0f7f4 0%, #ffffff 100%);
+    border-radius: 30px;
+    margin: 20px;
+    text-align: center;
+    border: 1px solid rgba(52, 160, 164, 0.1);
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    color: #1a759f;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
