@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Lessons - YouthCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lessons.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+    
+
+<body>
+    <div class="language-picker" style="position: absolute; top: 20px; right: 20px;">
+    <button class="btn-lang" onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button class="btn-lang" onclick="changeLanguage('rw')">🇷🇼 RW</button>
+</div>
+    <nav>
+        <div class="logo">🌿 YouthCare</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="lessons.html">Lessons</a>
+            <a href="tracker.html">Cycle</a>
+            <a href="chat.html">Chat</a>
+            <a href="profile.html">Profile</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header style="text-align: center; margin-bottom: 30px;">
+            <h1>Knowledge is Power</h1>
+            <p>Simple lessons to help you take control of your health.</p>
+        </header>
+
+        <details class="card" style="margin-bottom: 15px;">
+            <summary style="font-weight: bold; font-size: 1.2rem; cursor: pointer; color: var(--primary);">
+                📖 Lesson 1: HIV & STI Prevention
+            </summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; margin-top: 10px;">
+                <h4>The ABC Approach</h4>
+                <p>In Rwanda, we promote the ABC method for safety:</p>
+                <ul>
+                    <li><strong>A - Abstinence:</strong> The most effective way to prevent infection.</li>
+                    <li><strong>B - Be Faithful:</strong> Sticking to one partner whose status you know.</li>
+                    <li><strong>C - Condom Use:</strong> Using protection consistently and correctly.</li>
+                </ul>
+                <h4>What is PrEP?</h4>
+                <p>PrEP is a daily pill that prevents HIV. It is available at many health centers in Kigali and across Rwanda for those who need it most.</p>
+            </div>
+        </details>
+
+        <details class="card" style="margin-bottom: 15px;">
+            <summary style="font-weight: bold; font-size: 1.2rem; cursor: pointer; color: var(--primary);">
+                🩸 Lesson 2: Your Menstrual Cycle
+            </summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; margin-top: 10px;">
+                <p>Your cycle is usually 21 to 35 days long. It has 4 main stages:</p>
+                <ol>
+                    <li><strong>Menstruation:</strong> When your period happens.</li>
+                    <li><strong>Follicular:</strong> Your body prepares to release an egg.</li>
+                    <li><strong>Ovulation:</strong> The "Fertility Window." This is when pregnancy is most likely.</li>
+                    <li><strong>Luteal:</strong> Your body prepares for the next period.</li>
+                </ol>
+                <p><em>Tip: Use our tracker to see which stage you are in!</em></p>
+            </div>
+        </details>
+
+        <details class="card" style="margin-bottom: 15px;">
+            <summary style="font-weight: bold; font-size: 1.2rem; cursor: pointer; color: var(--primary);">
+                🧠 Lesson 3: Mental Health & Stress
+            </summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; margin-top: 10px;">
+                <p>Being a student is stressful. Mental health is just as important as physical health.</p>
+                <ul>
+                    <li><strong>Signs of Stress:</strong> Sleeping too much or too little, feeling irritable, or losing interest in hobbies.</li>
+                    <li><strong>How to cope:</strong> Talk to a trusted friend, practice deep breathing, and ensure you get enough sleep.</li>
+                </ul>
+                <p>If you feel overwhelmed, our <strong>Anonymous Chat</strong> is always open.</p>
+            </div>
+        </details>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="btn btn-primary" onclick="speakText('Welcome to the lessons page. Click on any topic to expand the text and learn more about your health.')">
+                🔊 Audio Guide
+            </button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<head>
+    <meta charset="UTF-8">
+    <title>YouthCare - Health Hub</title>
+    
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<link rel="stylesheet" href="styles.css">
+<div class="language-picker" style="position: absolute; top: 20px; right: 20px;">
+    <button class="btn-lang" onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button class="btn-lang" onclick="changeLanguage('rw')">🇷🇼 RW</button>
+</div>
+<main class="container">
+    <h2>Anonymous Health Expert Chat</h2>
+    <div class="card" style="height: 300px; overflow-y: scroll; border: 1px solid #ddd;" id="chatBox">
+        <p><strong>System:</strong> Welcome! Ask anything. Your identity is hidden.</p>
+    </div>
+    <div style="margin-top: 10px; display: flex;">
+        <input type="text" id="chatInput" style="flex: 1; padding: 10px; border-radius: 5px;" placeholder="Type your question...">
+        <button onclick="sendMessage()" class="btn btn-primary">Send</button>
+    </div>
+</main>
+<script src="script.js"></script>

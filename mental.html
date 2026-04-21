@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="icon.png">
+<main class="container">
+    <header style="text-align: center; margin-bottom: 30px;">
+        <h1>Your Mind Matters</h1>
+        <p>A safe space for Rwandan youth to reflect and recharge.</p>
+    </header>
+
+    <div class="card">
+        <h3>How are you feeling today?</h3>
+        <p>Select an emoji to get a personalized tip.</p>
+        <div style="display: flex; justify-content: space-around; font-size: 2.5rem; cursor: pointer;">
+            <span onclick="setMood(1)" title="Stressed">😫</span>
+            <span onclick="setMood(2)" title="Sad">😢</span>
+            <span onclick="setMood(3)" title="Okay">😐</span>
+            <span onclick="setMood(4)" title="Happy">😊</span>
+            <span onclick="setMood(5)" title="Great">🔥</span>
+        </div>
+        <div id="moodMsg" style="margin-top: 15px; font-weight: bold; color: var(--secondary); min-height: 24px;"></div>
+    </div>
+
+    <h2 style="margin-top: 40px;">Mental Health Toolbox</h2>
+    <div class="grid">
+        <div class="card">
+            <h4>🌬️ The 4-7-8 Technique</h4>
+            <p>Feeling anxious? Inhale 4s, Hold 7s, Exhale 8s. Repeat 4 times to calm your brain.</p>
+        </div>
+        <div class="card">
+            <h4>📝 Journaling</h4>
+            <p>Write down 3 things you are grateful for today. It shifts your brain's focus from problems to progress.</p>
+        </div>
+        <div class="card">
+            <h4>📵 Digital Detox</h4>
+            <p>Social media can cause "comparison trap." Try turning off your phone 1 hour before bed.</p>
+        </div>
+    </div>
+
+    <div class="card" style="border-left: 5px solid var(--accent); margin-top: 20px;">
+        <h4>Need to talk to someone?</h4>
+        <p>You don't have to carry the weight alone. Reach out to professional support:</p>
+        <ul>
+            <li><strong>Ndi-Haph:</strong> Mental health support line.</li>
+            <li><strong>University Counselor:</strong> Visit the student affairs office for free counseling.</li>
+        </ul>
+    </div>
+</main>
+<script src="script.js"></script>

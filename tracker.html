@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="icon.png">
+<div class="language-picker" style="position: absolute; top: 20px; right: 20px;">
+    <button class="btn-lang" onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button class="btn-lang" onclick="changeLanguage('rw')">🇷🇼 RW</button>
+</div>
+<main class="container">
+    <div class="card">
+        <div class="dashboard-layout">
+            
+            <div class="info-aside">
+                <h2 style="color: var(--primary);">Live Health Tracker</h2>
+                <p>Select your period start date on the calendar ring to the right.</p>
+                
+                <div style="background: var(--bg-light); padding: 15px; border-radius: 10px; margin: 20px 0;">
+                    <h1 id="currentDayText" style="margin:0; color: var(--secondary);">Day --</h1>
+                    <p id="phaseStatus" style="font-weight: bold; margin: 5px 0;">Waiting for input...</p>
+                </div>
+
+                <ul style="font-size: 0.85rem; color: #555; padding-left: 20px;">
+                    <li><strong>Blue Border:</strong> Today's Date</li>
+                    <li style="color: red;"><strong>Red:</strong> Menstruation Phase</li>
+                    <li style="color: green;"><strong>Green:</strong> High Fertility Window</li>
+                    <li style="color: blueviolet;"><strong>Purple:</strong>Infertile Phase</li>
+                </ul>
+            </div>
+
+            <div class="ring-aside">
+                <div class="wheel-container">
+                    <div class="wheel-center">
+                        <span style="font-size: 2rem;">🗓️</span>
+                    </div>
+                    <div id="wheelDots"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="ring-section">
+    <div class="wheel-container">
+        <div class="wheel-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <span style="font-size: 2.5rem;">📅</span>
+        </div>
+        <div id="wheelDots"></div>
+    </div>
+</div>
+
+</main>
+
+<script src="script.js"></script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouthCare - HIV Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="icon.png">
+</head>
+<body><div class="language-picker" style="position: absolute; top: 20px; right: 20px;">
+    <button class="btn-lang" onclick="changeLanguage('en')">🇬🇧 EN</button>
+    <button class="btn-lang" onclick="changeLanguage('rw')">🇷🇼 RW</button>
+</div>
+    <main class="container">
+        <section class="hero" style="background: linear-gradient(135deg, #34a0a4, #1a759f); color: white; padding: 60px 20px; border-radius: 20px; text-align: center;">
+            <h1>Know Your Status, Protect Your Future</h1>
+            <p>Your health is your greatest asset. Stay informed, stay safe, and stay empowered.</p>
+        </section>
+
+        <section class="card" style="margin-top: 30px;">
+            <h2>What is HIV?</h2>
+            <p>HIV (Human Immunodeficiency Virus) is a virus that attacks the body’s immune system. If not treated, it can lead to AIDS. However, with modern medicine, people with HIV live long, healthy lives.</p>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <h3>How it Spreads</h3>
+                <ul>
+                    <li>Unprotected sexual contact</li>
+                    <li>Sharing needles or syringes</li>
+                    <li>From mother to child during birth</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>How to Prevent It</h3>
+                <ul>
+                    <li>Consistent condom use</li>
+                    <li>Regular HIV testing</li>
+                    <li>PrEP (Daily medicine to prevent HIV)</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="card">
+            <h3>Myths vs. Facts</h3>
+            <div class="myth-box" onclick="toggleMyth(this)">
+                <p><strong>Myth:</strong> You can get HIV from hugging or sharing food.</p>
+                <p class="fact" style="display:none; color: #15803d;"><strong>Fact:</strong> HIV is NOT spread through casual contact, saliva, or sweat.</p>
+            </div>
+            <div class="myth-box" onclick="toggleMyth(this)" style="margin-top:10px;">
+                <p><strong>Myth:</strong> HIV is a death sentence.</p>
+                <p class="fact" style="display:none; color: #15803d;"><strong>Fact:</strong> With ART (Anti-Retroviral Therapy), HIV is a manageable chronic condition.</p>
+            </div>
+        </section>
+
+        <section class="card" id="hiv-test" style="border: 2px solid var(--secondary);">
+            <h2>Online Risk Assessment</h2>
+            <p>Answer 3 quick questions to check if you should visit a clinic.</p>
+            <div id="quiz-content">
+                <p>1. Have you had unprotected sex in the last 3 months?</p>
+                <button class="btn" onclick="nextQuestion(true)">Yes</button>
+                <button class="btn" onclick="nextQuestion(false)">No</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Ask a Sensitive Question</h3>
+            <textarea id="hivQuestion" class="input-field" placeholder="Type your question here... (It's anonymous)"></textarea>
+            <button class="btn btn-primary" style="margin-top:10px;" onclick="submitHivQuestion()">Ask Privately</button>
+            <div id="hivResponse" style="margin-top:15px; font-style: italic; color: #555;"></div>
+        </section>
+        <section class="hero">
+    <h1 data-key="hero-title">Know Your Status, Protect Your Future</h1>
+    <p data-key="hero-desc">Your health is your greatest asset. Stay informed.</p>
+</section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

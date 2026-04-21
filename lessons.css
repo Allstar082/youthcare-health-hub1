@@ -1,0 +1,83 @@
+/* lessons.css - Specific styling for the educational modules */
+
+.lessons-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Accordion Styling */
+details {
+    background: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e1e8ed;
+    transition: all 0.3s ease;
+}
+
+details[open] {
+    border: 2px solid var(--secondary); /* Highlighting the active lesson */
+    transform: scale(1.02);
+}
+
+summary {
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+}
+
+summary::-webkit-details-marker {
+    display: none; /* Hides the default tiny triangle */
+}
+
+/* Lesson Content Layout */
+.lesson-content {
+    padding: 0 25px 25px 25px;
+    border-top: 1px solid #f0f4f8;
+    line-height: 1.8;
+    color: #444;
+}
+
+.lesson-content h4 {
+    color: var(--secondary);
+    margin-top: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lesson-content ul {
+    padding-left: 20px;
+}
+
+.lesson-content li {
+    margin-bottom: 10px;
+}
+
+/* Badge for "New" lessons */
+.badge {
+    background: var(--accent);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* Mobile Adjustments for your Samsung A23 */
+@media (max-width: 600px) {
+    .lessons-container {
+        margin: 20px auto;
+    }
+    summary {
+        font-size: 1rem;
+    }
+}

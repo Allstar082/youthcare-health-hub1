@@ -1,0 +1,200 @@
+:root {
+    --primary: #2D6A4F; /* Forest Green */
+    --secondary: #34A0A4; /* Teal */
+    --accent: #FF7096; /* Soft Pink for fertility */
+    --bg-light: #F8F9FA;
+    --text-dark: #212529;
+    --white: #ffffff;
+}
+
+/* Accessibility: High Contrast Mode */
+body.high-contrast {
+    --primary: #000000;
+    --secondary: #FFFF00;
+    --bg-light: #000000;
+    --text-dark: #FFFFFF;
+    --white: #1a1a1a;
+}
+
+* { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body { margin: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+
+/* Navigation */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; background: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.logo { font-weight: bold; font-size: 1.5rem; color: var(--primary); }
+
+.nav-links a { text-decoration: none; color: var(--text-dark); margin-left: 15px; font-weight: 500; }
+
+/* Hero Section */
+.hero {
+    padding: 4rem 5%; text-align: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+/* Grid & Cards */
+.container { padding: 2rem 5%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+
+
+.card:hover { transform: translateY(-5px); }
+
+/* Buttons */
+.btn {
+    display: inline-block; padding: 12px 24px; border-radius: 25px;
+    text-decoration: none; font-weight: bold; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--primary); color: white; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Simplified for mobile */
+}
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+.input-field:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+#currentDayText { font-size: 1.8rem; font-weight: bold; color: var(--primary); }
+
+.cycle-dot {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: bold;
+    transform-origin: 140px 140px; /* Moves dots around the center */
+}
+
+/* Legend Dots */
+.dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; }
+.red { background: #b91c1c; }
+.green { background: #15803d; }
+.purple { background: #7e22ce; }
+/* Container for the side-by-side layout */
+.dashboard-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows it to stack on mobile phones like your A23 */
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* The side for instructions/text */
+.info-aside {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+/* The side for the Ring */
+.ring-aside {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;        /* ADD THIS */
+  min-width: 300px;
+}
+
+/* This ensures the card grows with the content */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: visible; /* Allows the ring to be seen if it moves slightly */
+    min-height: 600px; /* Gives enough vertical space */
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start; /* Align items to the top first */
+}
+
+.ring-section {
+    display: flex;
+    justify-content: center;
+    /* This is the magic number to move it down */
+    margin-top: 100px; 
+    position: relative;
+}
+
+.wheel-container {
+  position: relative;
+  width: 280px;               /* or whatever your ring size is */
+  height: 280px;
+  margin: 0 auto;             /* ADD THIS */
+}
+.myth-box {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-left: 5px solid var(--primary);
+}
+
+.myth-box:hover {
+    background: #e9ecef;
+}
+
+.fact {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ccc;
+}
+
+#quiz-content button {
+    margin-right: 10px;
+    padding: 10px 25px;
+}
+.btn-lang {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-left: 5px;
+}
+
+.btn-lang:hover {
+    background: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
