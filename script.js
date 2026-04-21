@@ -99,39 +99,50 @@ function generateCalendarRing(selectedPeriodStartDay = null) {
     const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
     const todayDate = now.getDate();
-    const containerSize = 300; // Diameter of the ring
     
-    // Get total days in the current month (e.g., 30 for April)
+    // --- RESPONSIVE ENGINEERING START ---
+    // Instead of 300, we check how wide the container actually is on the phone
+    const containerSize = container.offsetWidth; 
+    const center = containerSize / 2;
+    
+    // Instead of 125, we set radius to 40% of the container size
+    const radius = containerSize * 0.4; 
+    // --- RESPONSIVE ENGINEERING END ---
+
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    const radius = 125;
 
     for (let i = 1; i <= daysInMonth; i++) {
         const dot = document.createElement('div');
         dot.className = 'cycle-dot';
         dot.innerText = i;
 
+        // Position math using the new dynamic 'center' and 'radius'
         const angle = (i - 1) * (360 / daysInMonth) - 90;
         dot.style.transform = `rotate(${angle}deg) translate(${radius}px) rotate(${-angle}deg)`;
+        
+        // Centering the dots (assuming dots are 30px wide, we offset by 15px)
+        dot.style.left = `${center - 15}px`;
+        dot.style.top = `${center - 15}px`;
+        dot.style.position = "absolute";
 
         // Default color (Neutral/Purple)
         dot.style.background = "#7e22ce"; 
 
-        // 1. Highlight "Today" so the user knows where they are
+        // 1. Highlight "Today"
         if (i === todayDate) {
             dot.style.boxShadow = "0 0 15px #34A0A4";
             dot.style.fontWeight = "bold";
             dot.style.border = "2px solid #34A0A4";
         }
 
-        // 2. If a period start date is selected, apply the 28-day logic
+        // 2. 28-day logic application
         if (selectedPeriodStartDay !== null) {
-            // Calculate how many days have passed since the period started
             let dayOfCycle = (i - selectedPeriodStartDay + daysInMonth) % daysInMonth + 1;
 
             if (dayOfCycle >= 1 && dayOfCycle <= 7) {
-                dot.style.background = "#b91c1c"; // Menstruation
+                dot.style.background = "#b91c1c"; // Menstruation (Red)
             } else if (dayOfCycle >= 8 && dayOfCycle <= 19) {
-                dot.style.background = "#15803d"; // Fertile
+                dot.style.background = "#15803d"; // Fertile (Green)
             }
         }
 
@@ -139,14 +150,23 @@ function generateCalendarRing(selectedPeriodStartDay = null) {
         dot.style.cursor = "pointer";
         dot.onclick = () => {
             const monthName = now.toLocaleString('default', { month: 'long' });
-            alert(`You set ${monthName} ${i} as your Period Start Date.`);
-            generateCalendarRing(i); // Redraw with colors starting from this date
-            updateStatusText(i, daysInMonth);
+            // Save selection to remember even if screen rotates
+            window.lastSelectedDay = i; 
+            generateCalendarRing(i); 
+            if (typeof updateStatusText === "function") {
+                updateStatusText(i, daysInMonth);
+            }
         };
 
         container.appendChild(dot);
     }
 }
+
+// 🛠️ CRITICAL FOR MOBILE STABILITY:
+// This ensures that if the user rotates their phone, the ring redraws perfectly.
+window.addEventListener('resize', () => {
+    generateCalendarRing(window.lastSelectedDay || null);
+});
 
 function updateStatusText(startDay, totalDays) {
     const now = new Date();
@@ -265,4 +285,18 @@ function changeLanguage(lang) {
 window.onload = () => {
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     changeLanguage(savedLang);
+};
+const translations = {
+    'en': {
+        'welcome-title': 'Your Health, Your Privacy, Your Future.',
+        'welcome-desc': 'Welcome to YouthCare. We provide a secure, judgment-free space to track your health and get the facts.',
+        'btn-start': 'Start Tracking',
+        'btn-learn': 'Learn More'
+    },
+    'rw': {
+        'welcome-title': 'Ubuzima bwawe, Ibanga ryawe, Ejo hazaza hawe.',
+        'welcome-desc': 'Ikaze kuri YouthCare. Twaguhaye ahantu hizewe kandi hadafite akato kugira ngo ukurikirane ubuzima bwawe.',
+        'btn-start': 'Tangira ubu',
+        'btn-learn': 'Soma birambuye'
+    }
 };
